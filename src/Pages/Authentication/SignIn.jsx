@@ -9,14 +9,27 @@ const SignIn = () => {
     console.log(users);
     const navigate = useNavigate()
 
+    const admin={email:'admin@gmail.com',
+                password:'1234'}
     const handleSubmit=(e)=>{
         e.preventDefault();
 
         const IsAuthenticated = users.find((user)=> user.email === email && user.password === password)
-        console.log(IsAuthenticated);
-        if(IsAuthenticated){
-            navigate('/')
+        const IsAdmin =  admin.email === email && admin.password === password
+
+        console.log(IsAuthenticated );
+        if(IsAuthenticated && IsAdmin){
+            // if(IsAuthenticated=admin.email===email && admin.password===password){
+            //     navigate('admin')
+            // }
+            navigate('/admin')
+        }else if(IsAuthenticated){
+            navigate('/')   
         }
+        else{
+            console.log("user not found");
+        }
+        
     }
   return (
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">

@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   users: [], // Change 'user' to 'users' to store an array
   isAuthenticated: false,
+ 
   // Add any other relevant state properties
 };
 
